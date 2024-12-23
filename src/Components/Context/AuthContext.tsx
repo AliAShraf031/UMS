@@ -1,16 +1,34 @@
 import { jwtDecode } from "jwt-decode";
-import { createContext, useEffect, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 
-export const AuthContext = createContext(null);
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
 
-export default function AuthContextProvider(props) {
-  const [userData, setUserData] = useState(null);
+interface AuthContextType {
+  userData: User | null;
+  saveUserData: () => void;
+}
+export const AuthContext = createContext<AuthContextType | null>(null);
+
+interface AuthContextProviderProps {
+  children: ReactNode;
+}
+
+export default function AuthContextProvider({
+  children,
+}: AuthContextProviderProps) {
+  const [userData, setUserData] = useState<User | null>(null);
 
   const saveUserData = () => {
     const encodedToken = localStorage.getItem("accessToken");
-    const decodedToken = jwtDecode(encodedToken);
-    console.log(decodedToken);
-    setUserData(decodedToken);
+    if (encodedToken) {
+      const decodedToken = jwtDecode<User>(encodedToken);
+      console.log(decodedToken);
+      setUserData(decodedToken);
+    }
   };
   useEffect(() => {
     if (localStorage.getItem("accessToken")) {
@@ -19,7 +37,7 @@ export default function AuthContextProvider(props) {
   }, []);
   return (
     <AuthContext.Provider value={{ saveUserData, userData }}>
-      {props.children}
+      {children}
     </AuthContext.Provider>
   );
 }

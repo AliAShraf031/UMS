@@ -2,16 +2,22 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { AuthContext } from "../Context/AuthContext";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
+interface UserFormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  age: number;
+  phone: number;
+  birthDate: string;
+}
 export default function Addusers() {
-  const { register, handleSubmit } = useForm();
-
-  const [user, setUser] = useState([]);
-
+  const { register, handleSubmit } = useForm<UserFormData>();
   const { userData } = useContext(AuthContext);
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: UserFormData) => {
     try {
       const response = await axios.post(
         "https://dummyjson.com/users/add",
@@ -161,7 +167,12 @@ export default function Addusers() {
             />
           </div>
         </div>
-        <button className="btn btn-warning text-white mt-4 w-50 d-block mx-auto">
+        <button
+          className="btn btn-warning text-white mt-4 w-50 d-block mx-auto"
+          {...(window.location.pathname === "/dashboard/profile"
+            ? { disabled: true }
+            : "")}
+        >
           Save
         </button>
       </form>
