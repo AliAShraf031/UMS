@@ -14,7 +14,7 @@ interface loginFormInputs {
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  const { saveUserData } = useContext(AuthContext);
+  const { saveUserData }: any = useContext(AuthContext);
 
   const {
     register,
