@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.login {
+  background-image: linear-gradient(to right, #FEAF00, #F8D442);
+}
+
+.login .title h3 {
+  position: relative;
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.login .title h3::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 30px;
+  background-color: #F8D442;
+  top: 0;
+  left: 35px;
+}
+
+.login .title h4 {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.login .title p {
+  color: #6C6C6C;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .login .title h3::after {
+    display: none;
+  }
+}
+
+.login .input-field .eye-icon {
+  font-size: 22px;
+  transform: translate(-7px, -30px);
+  color: #6C6C6C;
+  cursor: pointer;
+}
+
+.login button {
+  background-image: linear-gradient(to left, #FEAF00, #f1c619);
+  margin-top: -20px;
+}
+
+/* .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: #F2EAE1;
+  z-index: 1000;
+} */
+
+.sidebar .logo {
+  border-left: 4px solid #F8D442;
+  margin: 0 10px;
+  padding-left: 10px;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.sidebar p {
+  color: #FEAF00;
+}
+
+.ps-menu-button {
+  transition: 0.3s;
+}
+
+.ps-menu-button:hover {
+  background-color: #FEAF00 !important;
+}
+
+.ps-menu-button.active {
+  background-color: #FEAF00 !important;
+}
+
+.outlet {
+  background-color: #f8f8f8;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+
+
+table thead tr th {
+  color: #ACACAC !important;
+}
+
+.action-icon {
+  cursor: pointer;
+}
