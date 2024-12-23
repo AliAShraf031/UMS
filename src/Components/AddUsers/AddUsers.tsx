@@ -15,7 +15,7 @@ interface UserFormData {
 }
 export default function Addusers() {
   const { register, handleSubmit } = useForm<UserFormData>();
-  const { userData } = useContext(AuthContext);
+  const { userData }: any = useContext(AuthContext);
 
   const onSubmit = async (data: UserFormData) => {
     try {

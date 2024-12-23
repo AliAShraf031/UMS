@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { AuthContext } from "../Context/AuthContext";
 export default function NavBar() {
-  const { userData } = useContext(AuthContext);
+  const { userData }: any = useContext(AuthContext);
 
   return (
     <>

@@ -14,7 +14,7 @@ import { AuthContext } from "../Context/AuthContext";
 export default function SideBar() {
   const [collapse, setCollapse] = useState(false);
   const navigate = useNavigate();
-  const { userData } = useContext(AuthContext);
+  const { userData }: any = useContext(AuthContext);
   const logout = () => {
     localStorage.removeItem("accessToken");
     navigate("/login");

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { toast } from "react-toastify";
-import { BallTriangle, TailSpin } from "react-loader-spinner";
+import { BallTriangle } from "react-loader-spinner";
 
 export default function Users() {
   const [users, setUsers] = useState<any>([]);
@@ -91,7 +91,7 @@ export default function Users() {
             </tr>
           </thead>
           <tbody>
-            {users?.map((user) => (
+            {users?.map((user: any) => (
               <tr key={user?.id} className="text-center">
                 <td className="fw-bold">{user?.id}</td>
                 <td>
